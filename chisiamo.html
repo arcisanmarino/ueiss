@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chi siamo | Arci Ueiss APS</title>
+    <meta name="description"
+        content="Scopri chi è Arci Ueiss APS: la nostra storia, i servizi che offriamo e la community di San Marino di Bentivoglio.">
+    <meta name="author" content="Arci Ueiss APS">
+    <link rel="canonical" href="https://www.arciueiss.it/chisiamo.html">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Chi siamo | Arci Ueiss APS">
+    <meta property="og:description"
+        content="La storia, i servizi e la community di Arci Ueiss APS, associazione di San Marino di Bentivoglio.">
+    <meta property="og:image" content="https://www.arciueiss.it/img/logo.png">
+    <meta property="og:locale" content="it_IT">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Performance: preconnect to external hosts before loading their resources -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/fagiano.png" type="image/png">
+    <link rel="apple-touch-icon" href="img/fagiano.png">
+
+    <!-- Structured data for local SEO -->
+    <!-- <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Arci Ueiss APS",
+      "url": "https://www.arciueiss.it/",
+      "logo": "https://www.arciueiss.it/img/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/arcisanmarino?locale=it_IT",
+        "https://www.instagram.com/ueiss_/"
+      ]
+    }
+    </script>-->
+</head>
+
+<body>
+
+    <!-- Skip link per accessibilità da tastiera -->
+    <a class="skip-link" href="#main">Vai al contenuto principale</a>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-container">
+
+            <div class="logo">
+                <a href="/index.html">
+                    <img src="img/logo.png" alt="Logo Arci Ueiss APS - Torna alla Home" width="160" height="60">
+                </a>
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Apri/chiudi menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav aria-label="Menu principale">
+                <ul>
+                    <li><a href="/chisiamo.html">CHI SIAMO</a></li>
+                    <li><a href="/tesseramento.html">TESSERAMENTO</a></li>
+                    <li><a href="/ueissville.html">UEISSVILLE</a></li>
+                    <li><a href="/eventi.html">EVENTI</a></li>
+                    <li><a href="#contatti">CONTATTI</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- CONTENUTO -->
+    <div class="container">
+        <section id="slider">
+
+            <div class="slider-container">
+                <div class="image-container">
+                    <img src="img/fotogruppo.jpg" class="slider-image" />
+                    <img src="img/griglia1.jpeg" class="slider-image" />
+                    <img src="img/fotocucinasilos.jpg" class="slider-image" />
+                    <!-- aggiungi altre foto qui, senza toccare nient'altro -->
+                </div>
+            </div>
+        </section>
+        <script>
+            (function () {
+                const container = document.querySelector('.image-container');
+                const images = container.querySelectorAll('.slider-image');
+                const count = images.length;
+
+                const secondsPerImage = 3;   // quanto resta ferma ogni foto
+                const pauseFraction = 0.8;   // % di tempo ferma vs % di tempo in transizione
+
+                // ogni immagine è larga il 100% del container (image-container resta
+                // sempre alla larghezza dello slider) ed è affiancata alla successiva
+                // tramite "left" in percentuale
+                images.forEach((img, i) => {
+                    img.style.left = (i * 100) + '%';
+                });
+
+                // costruisce i keyframe: una "fetta" di tempo per ogni foto,
+                // spostando l'intero container con transform (in multipli del 100%,
+                // cioè della sua stessa larghezza)
+                let body = '';
+                for (let i = 0; i < count; i++) {
+                    const sliceStart = (i / count) * 100;
+                    const sliceEnd = ((i + 1) / count) * 100;
+                    const pauseEnd = sliceStart + (sliceEnd - sliceStart) * pauseFraction;
+                    const position = -100 * i;
+                    body += `${sliceStart}%, ${pauseEnd}% { transform: translateX(${position}%); }\n`;
+                }
+                body += `100% { transform: translateX(0); }`;
+
+                const style = document.createElement('style');
+                style.textContent = `@keyframes slide { ${body} }`;
+                document.head.appendChild(style);
+
+                const totalDuration = secondsPerImage * count;
+                container.style.animation = `slide ${totalDuration}s ease-in-out infinite`;
+            })();
+        </script>
+
+        <main id="main">
+            <section id="presentazione" aria-labelledby="presentazione-heading">
+                <h2 id="presentazione-heading">BENVENUTO</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quod cupiditate corporis corrupti!
+                    Cumque tempora, deleniti labore perspiciatis est suscipit quas necessitatibus omnis possimus quidem
+                    deserunt, cupiditate asperiores adipisci alias!</p>
+
+                <article>
+                    <h3>Servizio 1</h3>
+                    <p>Descrizione...</p>
+                </article>
+
+                <article>
+                    <h3>Servizio 2</h3>
+                    <p>Descrizione...</p>
+                </article>
+
+                <article>
+                    <h3>Servizio 3</h3>
+                    <p>Descrizione...</p>
+                </article>
+
+            </section>
+
+
+            <section id="eventi" aria-labelledby="eventi-heading">
+                <h2 id="eventi-heading">Eventi</h2>
+                <p>Informazioni sugli eventi.</p>
+            </section>
+
+
+            <section id="progetti" aria-labelledby="progetti-heading">
+                <h2 id="progetti-heading">Progetti</h2>
+                <p>I nostri progetti.</p>
+            </section>
+
+
+            <section id="contatti" aria-labelledby="contatti-heading">
+                <h2 id="contatti-heading">Contatti</h2>
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="social">
+                <a href="https://www.facebook.com/arcisanmarino?locale=it_IT"
+                    aria-label="Vai alla pagina Facebook di Arci Ueiss" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                </a>
+
+                <a href="https://www.instagram.com/ueiss_/" aria-label="Vai al profilo Instagram di Arci Ueiss"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+        <div class="container">
+            <p>
+                &copy; 2026 Arci Ueiss APS - Tutti i diritti riservati.
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
