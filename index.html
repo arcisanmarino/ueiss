@@ -58,7 +58,7 @@
         <div class="container header-container">
 
             <div class="logo">
-                <a href="index.html">
+                <a href="/index.html">
                     <img src="img/logo.png" alt="Logo Arci Ueiss APS - Torna alla Home" width="160" height="60">
                 </a>
             </div>
@@ -72,11 +72,10 @@
 
             <nav aria-label="Menu principale">
                 <ul>
-                    <li><a href="chisiamo.html">CHI SIAMO</a></li>
                     <li><a href="tesseramento.html">TESSERAMENTO</a></li>
                     <li><a href="ueissville.html">UEISSVILLE</a></li>
-                    <li><a href="eventi.html">EVENTI</a></li>
-                    <li><a href="#contatti">CONTATTI</a></li>
+                    <li><a href="pdf/Cocktail list.pdf">MENÙ</a></li>
+                    <li><a href="contatti.html">CONTATTI</a></li>
                 </ul>
             </nav>
 
@@ -90,58 +89,111 @@
         <main id="main">
 
             <section id="home" aria-labelledby="home-heading">
-                <h2 id="home-heading">BENVENUTO</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam repellat sit, eaque repellendus at
-                    ratione praesentium iusto aspernatur voluptates est soluta nulla eum magnam possimus numquam rem ut
-                    deleniti necessitatibus!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus consectetur velit dignissimos
-                    sapiente mollitia ea cum quisquam. Aspernatur eum sint officia, beatae, impedit iure eius maxime
-                    velit error, debitis laboriosam.</p>
+                <h2 id="home-heading">CIAO!</h2>
+                <p>Ueiss nasce nel 2018 dall'idea di un gruppo di amici, gli amici dei piccoli paesi che ti conoscono da
+                    quando sei nato e ti accompagnano per tutta la vita, un po' come la provincia che non ti scolli mai
+                    di dosso.</p> <br>
+                <p>Siamo nati con l’obiettivo di creare uno spazio di incontro per pochi amici, e negli anni ci siamo
+                    trasformati in un luogo di socialità ed espressione per i giovani di Bentivoglio e dintorni. <br>
+                    <br>Convinti che investire nel territorio in cui siamo nati potesse essere una ricchezza abbiamo
+                    deciso di non lasciare "la bassa" e dare valore alla provincia, perchè infondo siamo tutti alla
+                    provincia di qualcosa.
+                </p> <br>
+                <p>Questi siamo noi.</p>
+            </section>
+            <section id="slider">
+                <div class="slider-container">
+                    <div class="image-container">
+                        <img src="img/foto home/1.jpg" class="slider-image" />
+                        <img src="img/foto home/fotocucinasilos.jpg" class="slider-image" />
+                        <img src="img/foto home/IMG_0353.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_0364.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_0477.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_0653.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_0761.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_0926.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_1553.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_2484.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_2545.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_2799.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_4267.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_4599.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_6192.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_6414.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_8336.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_9061.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_9502.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_9950.JPG" class="slider-image" />
+                        <img src="img/foto home/IMG_9990.JPG" class="slider-image" />
+                    </div>
+                </div>
+            </section>
+            <script>
+                (function () {
+                    const container = document.querySelector('.image-container');
+                    const images = container.querySelectorAll('.slider-image');
+                    const count = images.length;
+
+                    const secondsPerImage = 3;   // quanto resta ferma ogni foto
+                    const pauseFraction = 0.8;   // % di tempo ferma vs % di tempo in transizione
+
+                    // ogni immagine è larga il 100% del container (image-container resta
+                    // sempre alla larghezza dello slider) ed è affiancata alla successiva
+                    // tramite "left" in percentuale
+                    images.forEach((img, i) => {
+                        img.style.left = (i * 100) + '%';
+                    });
+
+                    // costruisce i keyframe: una "fetta" di tempo per ogni foto,
+                    // spostando l'intero container con transform (in multipli del 100%,
+                    // cioè della sua stessa larghezza)
+                    let body = '';
+                    for (let i = 0; i < count; i++) {
+                        const sliceStart = (i / count) * 100;
+                        const sliceEnd = ((i + 1) / count) * 100;
+                        const pauseEnd = sliceStart + (sliceEnd - sliceStart) * pauseFraction;
+                        const position = -100 * i;
+                        body += `${sliceStart}%, ${pauseEnd}% { transform: translateX(${position}%); }\n`;
+                    }
+                    body += `100% { transform: translateX(0); }`;
+
+                    const style = document.createElement('style');
+                    style.textContent = `@keyframes slide { ${body} }`;
+                    document.head.appendChild(style);
+
+                    const totalDuration = secondsPerImage * count;
+                    container.style.animation = `slide ${totalDuration}s ease-in-out infinite`;
+                })();
+            </script>
+
+            <section id="home" aria-labelledby="home-heading">
+                <p>Dal 2022 gestiamo il Circolo Arci di San Marino che è diventato come casa.</p> <br>
+                <p>Arci Ueiss è aperto ogni venerdi come cocktail bar in cui organizziamo eventi di musica dal vivo e
+                    jam session.</p>
+                <p>Durante la settimana il circolo è animato da corsi, dibattiti, proiezioni di film e tornei sportivi.
+                </p>
+                <p>In estate a <a href="ueissville.html" target="_parent">Ueissville</a> organizziamo il nostro festival
+                    musicale.</p> <br>
+                <p>Con questi eventi promuoviamo partecipazione,
+                    collaborazione e protagonismo giovanile, convinti
+                    che queste attività possano creare veri e propri legami all’interno della comunità locale.</p>
+
+            </section>
+            <section id="cocktil-list">
                 <div class="bottone cocktail">
                     <a class="bottone-cocktail" href="pdf/Cocktail list.pdf" target="_parent">
-                        <b>COCKTAIL LIST</b>
+                        <b>MENÙ + COCKTAIL LIST</b>
                     </a>
                 </div>
             </section>
-
-
-            <section id="chi-siamo" aria-labelledby="chi-siamo-heading">
-                <h2 id="chi-siamo-heading">Chi siamo</h2>
-
-                <article>
-                    <h3>Servizio 1</h3>
-                    <p>Descrizione...</p>
-                </article>
-
-                <article>
-                    <h3>Servizio 2</h3>
-                    <p>Descrizione...</p>
-                </article>
-
-                <article>
-                    <h3>Servizio 3</h3>
-                    <p>Descrizione...</p>
-                </article>
-
+            <section class="regole-arci">
+                <div id="visionepc">
+                    <img src="img/Benvenut3 ad Arci UEISS! sito.jpg" alt="come funziona l'arci ueiss?">
+                </div>
+                <div id="visionephone">
+                    <img src="img/Benvenut3 ad Arci UEISS! sito phone.jpg" alt="come funziona l'arci ueiss?">
+                </div>
             </section>
-
-
-            <section id="eventi" aria-labelledby="eventi-heading">
-                <h2 id="eventi-heading">Eventi</h2>
-                <p>Informazioni sugli eventi.</p>
-            </section>
-
-
-            <section id="progetti" aria-labelledby="progetti-heading">
-                <h2 id="progetti-heading">Progetti</h2>
-                <p>I nostri progetti.</p>
-            </section>
-
-
-            <section id="contatti" aria-labelledby="contatti-heading">
-                <h2 id="contatti-heading">Contatti</h2>
-            </section>
-
 
         </main>
 

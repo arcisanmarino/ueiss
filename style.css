@@ -265,6 +265,20 @@ h2 {
     margin-bottom: 1rem;
 }
 
+/* =================
+   REGOLE ARCI (foto pc / phone)
+================= */
+
+/* di default (desktop / schermi larghi) mostra la foto per pc,
+   nasconde quella pensata per lo schermo del telefono */
+#visionepc {
+    display: block;
+}
+
+#visionephone {
+    display: none;
+}
+
 
 /* =================
        FOOTER
@@ -506,5 +520,14 @@ footer {
 
     .nav-toggle:checked+.nav-toggle-label span:nth-child(3) {
         transform: translateY(-8.5px) rotate(-45deg);
+    }
+
+    /* su mobile: nascondi la foto pc, mostra quella pensata per il telefono */
+    #visionepc {
+        display: none;
+    }
+
+    #visionephone {
+        display: block;
     }
 }
